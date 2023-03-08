@@ -43,23 +43,9 @@ layout:
     bind: $SNAP/etc/UPower
 
 parts:
-  meson-deps:
-    plugin: python
-    source: https://github.com/mesonbuild/meson/releases/download/0.63.0/meson-0.63.0.tar.gz
-    build-packages:
-      - ninja-build
-      - python3-distutils-extra
-    prime:
-      - -bin
-      - -etc
-      - -lib
-      - -share
-      - -usr
-
   upower:
-    after:
-      - meson-deps
     build-packages:
+    - meson
     - libglib2.0-dev
     - xsltproc
     - libgudev-1.0-dev
